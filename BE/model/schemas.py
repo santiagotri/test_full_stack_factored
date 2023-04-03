@@ -21,19 +21,19 @@ class Skill(SkillBase):
 
 class UserBase(BaseModel):
     name: str
-    title: str
+    position: str
     img: Union[str, None] = None
     description: str
     email: str
 
 
 class UserCreate(UserBase):
-    hashed_password: str
+    password: str
 
 
 class User(UserBase):
     id: int
-    is_active: bool
+    active: bool
     skills: list[Skill] = []
 
     class Config:

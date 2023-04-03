@@ -34,7 +34,7 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     return controller.create_user(db=db, user=user)
 
 
-@app.get("/users/{email}/{password}", response_model=schemas.User)
+@app.get("/login/{email}/{password}", response_model=schemas.User)
 def login_user(email: str,  password: str, db: Session = Depends(get_db)):
     db_user = controller.login_user(db, email=email, password=password)
     if db_user is None:
@@ -42,7 +42,7 @@ def login_user(email: str,  password: str, db: Session = Depends(get_db)):
     return db_user
 
 
-@app.get("/login/{user_id}", response_model=schemas.User)
+@app.get("/user/{user_id}", response_model=schemas.User)
 def read_user(user_id: int, db: Session = Depends(get_db)):
     db_user = controller.get_user(db, user_id=user_id)
     if db_user is None:
