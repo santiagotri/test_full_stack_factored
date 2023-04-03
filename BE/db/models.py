@@ -9,7 +9,7 @@ class User(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
-    title = Column(String)
+    position = Column(String)
     img = Column(String)
     description = Column(String)
     email = Column(String, unique=True, index=True)
