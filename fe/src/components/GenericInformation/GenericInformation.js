@@ -1,7 +1,6 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
 import Container from "@mui/material/Container";
-import { Typography } from "@mui/material";
 
 export default function GenericInformation(props) {
   return (
@@ -19,7 +18,6 @@ export default function GenericInformation(props) {
         <Grid display="flex" alignItems="center">
           <Container>
               <h1>{props.title}</h1>
-            
               <p>{props.content}</p>
           </Container>
         </Grid>

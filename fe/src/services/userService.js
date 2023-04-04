@@ -1,5 +1,4 @@
 
-import axios from 'axios'
 const userKey = "user";
 
 export function isLoggedIn() {
