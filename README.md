@@ -52,5 +52,10 @@ The app retrieves the user information from the backend when a email and passwor
 
 > ***DISCLAIMER:*** This is a really insecure way to manage sessions, it is just to implement a full-stack web login in short time, by any circumstances this solution can be used in production. 
 
+## Docker hub
+
+The **fe** and **BE** folders content is also available in Docker hub.
+- https://hub.docker.com/repository/docker/santiagotri/backend-factored/general
+- https://hub.docker.com/repository/docker/santiagotri/frontend-factored/general
 
 ***By: Santiago Triana Arjona***
