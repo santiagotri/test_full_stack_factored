@@ -18,12 +18,9 @@ export default function GenericInformation(props) {
         </Grid>
         <Grid display="flex" alignItems="center">
           <Container>
-            <Typography paragraph>
               <h1>{props.title}</h1>
-            </Typography>
-            <Typography display="flex" paragraph>
+            
               <p>{props.content}</p>
-            </Typography>
           </Container>
         </Grid>
       </Grid>
