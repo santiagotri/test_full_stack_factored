@@ -1,3 +1,5 @@
+
+import axios from 'axios'
 const userKey = "user";
 
 export function isLoggedIn() {
@@ -19,12 +21,14 @@ export async function login(email, password) {
   var rta = false;
   await fetch("http://localhost:8000/login/" + email + "/" + password + "/")
     .then((response) => response.json())
-    .then((data) => {
+    .then( (data) => {
       console.log(data);
       if (data.email) {
         saveUser(data);
         rta = true;
       }
+    }).catch(function (error){
+      console.log(error.response.data);
     });
   return rta;
 }
