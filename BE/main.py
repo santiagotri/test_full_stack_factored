@@ -5,11 +5,21 @@ from controller import controller
 from db import models
 from model import schemas
 from db.database import SessionLocal, engine
+from fastapi.middleware.cors import CORSMiddleware
 
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Dependency
 def get_db():
@@ -36,7 +46,7 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
 
 @app.get("/login/{email}/{password}", response_model=schemas.User)
 def login_user(email: str,  password: str, db: Session = Depends(get_db)):
-    db_user = controller.login_user(db, email=email, password=password)
+    db_user = controller.login_user(db, email=email.lower(), password=password)
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
     return db_user
