@@ -24,7 +24,6 @@ def get_user_by_email(db: Session, email: str):
 
 def login_user (db: Session, email:str, password:str):
     hashed_password = hash_password(password)
-    print(hashed_password)
     return db.query(models.User).filter(models.User.email == email, models.User.hashed_password == hashed_password)\
         .first()
 
